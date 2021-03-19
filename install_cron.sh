@@ -6,7 +6,7 @@ apt install cron && touch /etc/cron.d/hello-cron && chmod 0644 /etc/cron.d/hello
 # ecrit notre crontab
 crontab -l > mycron
 #echo new cron into cron file
-echo "* * * * * bash /Bash-linux-project/log_move.sh" >> mycron
+echo "*/2 * * * * cd /Bash-linux-project/ && bash log_move.sh" >> mycron
 #install new cron file
 crontab mycron
 rm mycron
