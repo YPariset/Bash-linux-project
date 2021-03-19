@@ -22,10 +22,14 @@ fetch('log/dump_list.txt')
 .then(blob => blob.text())
 .then(text => {
 console.log(text);
+
+const textSplitLog = text.split(' ')
+
+for (i=0; i<textSplitLog.length ; i++){
 let para = document.createElement('p');
-para.innerHTML = "<a href=text>"+text+"</a>";
+para.innerHTML = "<a href=text>"+textSplitLog[i]+"</a>";
 let section = document.getElementById('logList');
-section.appendChild(para);
+section.appendChild(para);}
 })
 .catch((e) => console.error(e));
 
@@ -34,10 +38,14 @@ fetch('log/json_list.txt')
 .then(blob => blob.text())
 .then(text => {
 console.log(text);
+
+const textSplitJson = text.split(' ')
+
+for (i=0; i<textSplitJson.length ; i++){
 let paraJson = document.createElement('p');
-paraJson.innerHTML = "<a href=https://google.fr/>"+text+"</a>";
+paraJson.innerHTML = "<a href=https://google.fr/>"+textSplitJson[i]+"</a>";
 let sectionJson = document.getElementById('jsonList');
-sectionJson.appendChild(paraJson);
+sectionJson.appendChild(paraJson);} 
 })
 .catch((e) => console.error(e));
 </script>
