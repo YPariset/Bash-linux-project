@@ -35,7 +35,7 @@ fetch('log/json_list.txt')
 .then(text => {
 console.log(text);
 let paraJson = document.createElement('p');
-para.innerHTML = "<a href=https://google.fr/>"+text+"</a>";
+paraJson.innerHTML = "<a href=https://google.fr/>"+text+"</a>";
 let sectionJson = document.getElementById('jsonList');
 sectionJson.appendChild(paraJson);
 })
