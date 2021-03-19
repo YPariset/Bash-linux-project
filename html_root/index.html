@@ -6,6 +6,39 @@
         <title>ca bash</title>
     </head>
     <body>
-    	<h1>Hello World !</h1>
+    	<h1>Download all logs</h1>
+ <a href="/archives/log.tar.gz" download target="_blank">
+      <button>Click here</button></a>
+	<h2>Log list</h2>
+	<div id="logList">
+	</div> 
+	<h2>Error json list</h2>
+	<div id="jsonList">
+        </div>
     </body>
+<script>
+fetch('log/dump_list.txt')
+.then(resp => resp.blob())
+.then(blob => blob.text())
+.then(text => {
+console.log(text);
+let para = document.createElement('p');
+para.innerHTML = "<a href=text>"+text+"</a>";
+let section = document.getElementById('logList');
+section.appendChild(para);
+})
+.catch((e) => console.error(e));
+
+fetch('log/json_list.txt')
+.then(resp => resp.blob())
+.then(blob => blob.text())
+.then(text => {
+console.log(text);
+let paraJson = document.createElement('p');
+para.innerHTML = "<a href=https://google.fr/>"+text+"</a>";
+let sectionJson = document.getElementById('jsonList');
+sectionJson.appendChild(paraJson);
+})
+.catch((e) => console.error(e));
+</script>
 </html>
